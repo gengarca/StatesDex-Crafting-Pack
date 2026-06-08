@@ -63,7 +63,7 @@ async def update_crafting_display(interaction, user_id, is_new=False):
         for instance in ball_instances:
             emoji = interaction.client.get_emoji(instance.ball.emoji_id)
             special_text = f"{instance.special.emoji} " if instance.special else ""
-            stats_text = f"(ATK: {instance.attack_bonus:+d}, HP: {instance.health_bonus:+d})"
+            stats_text = f" "
             ingredients_display.append(f"{emoji} {special_text}{instance.ball.country} #{instance.pk:0X} {stats_text}")
         
         embed.add_field(
