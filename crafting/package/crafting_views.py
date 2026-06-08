@@ -177,8 +177,8 @@ class CraftingView(discord.ui.View):
                 player=self.player,
                 ball=recipe.result,
                 special=self.session_data.get('special'),
-                health_bonus=random.randint(-settings.max_attack_bonus, settings.max_attack_bonus),
-                attack_bonus=random.randint(-settings.max_attack_bonus, settings.max_attack_bonus),
+                health_bonus=random.randint(0, 0),
+                attack_bonus=random.randint(0, 0),
             )
     
             # Calculate stats
@@ -197,11 +197,6 @@ class CraftingView(discord.ui.View):
                 title="✅ Crafting Successful!",
                 description=f"Successfully crafted **{name}** (ID: #{crafted_instance.pk:0X})!",
                 color=0x00ff00
-            )
-            embed.add_field(
-                name="New instance Stats",
-                value=f"**ATK:** {crafted_instance.attack_bonus:+d} | **HP:** {crafted_instance.health_bonus:+d}",
-                inline=False
             )
     
             # Show ingredients used
@@ -225,13 +220,7 @@ class CraftingView(discord.ui.View):
     
             net_attack = crafted_instance.attack_bonus - total_sacrificed_attack
             net_health = crafted_instance.health_bonus - total_sacrificed_health
-            if net_attack != 0 or net_health != 0:
-                embed.add_field(
-                    name="Net Change",
-                    value=f"**ATK:** {net_attack:+d} | **HP:** {net_health:+d}",
-                    inline=False
-                )
-    
+                
             await interaction.response.edit_message(embed=embed, view=None)
     
             # Update session memory
