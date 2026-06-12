@@ -50,7 +50,7 @@ class CraftingView(discord.ui.View):
             await self.show_recipe_selection(interaction, possible_recipes)
         else:
             await self.execute_craft(interaction, possible_recipes[0])
-        self.stop() 
+            self.stop()
         
     @discord.ui.button(label="❌ Cancel", style=discord.ButtonStyle.danger)
     async def cancel_button(self, interaction: discord.Interaction, button: discord.ui.Button):
