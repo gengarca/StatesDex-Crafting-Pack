@@ -213,8 +213,8 @@ class Craft(commands.GroupCog, group_name="craft"):
             recipes = await queryset_to_list(queryset.filter(result=ball))
             title = f"🔨 Recipes for {ball.country}"
         else:
-            recipes = await queryset_to_list(queryset.all()[:10])
-            title = "🔨 Available Recipes (Top 10)"
+            recipes = await queryset_to_list(queryset.all())
+            title = "🔨 Available Recipes"
 
         if not recipes:
             return await interaction.response.send_message(
