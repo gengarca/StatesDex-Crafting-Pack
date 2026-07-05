@@ -79,14 +79,14 @@ async def update_crafting_display(interaction, user_id, is_new=False):
         )
     
     # Show total stats that will be sacrificed
-    if ball_instances:
-        total_attack = sum(instance.attack_bonus for instance in ball_instances) 
-        total_health = sum(instance.health_bonus for instance in ball_instances)
-        embed.add_field(
-            name="Total Stats of all ingredients",
-            value=f"**ATK:** {total_attack:+d} | **HP:** {total_health:+d}",
-            inline=False
-        )
+    # if ball_instances:
+    #     total_attack = sum(instance.attack_bonus for instance in ball_instances) 
+    #     total_health = sum(instance.health_bonus for instance in ball_instances)
+    #     embed.add_field(
+    #         name="Total Stats of all ingredients",
+    #         value=f"**ATK:** {total_attack:+d} | **HP:** {total_health:+d}",
+    #         inline=False
+    #     )
     
     # Show commands help
     embed.add_field(
